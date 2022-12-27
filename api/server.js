@@ -31,7 +31,7 @@ app.get("*", (req, res) =>
 res.sendFile(path.resolve(__dirname, "../client/build/index.html"))
 );
 
-wws.cors();
+io.cors();
 
 const io = new Server(server, {
   pingTimeout: 60000,
