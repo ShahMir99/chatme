@@ -23,7 +23,7 @@ import ScrollAbleChat from "./ScrollAbleChat";
 import io from "socket.io-client"
 import { fetchAllChat } from "../../Action/chatAction";
 
-const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = "https://powerful-tam-foal.cyclic.app";
 var socket , socketChatCompare;
 
 
