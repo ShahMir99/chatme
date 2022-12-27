@@ -16,7 +16,7 @@ const MyChats = () => {
   const { authData } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    dispatch(fetchAllChat());
+    dispatch(fetchAllChat(authData._id));
   }, [dispatch]);
 
   return (

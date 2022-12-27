@@ -44,7 +44,7 @@ export const accessChat = async (req, res) => {
 export const fetchChat = async (req, res) => {
   try {
     var findchat = await Chat.find({
-      users: { $elemMatch: { $eq: req.user._id } },
+      users: { $elemMatch: { $eq: req.params.id } },
     })
       .populate("users", "-password")
       .populate("groupAdmin", "-password")

@@ -12,7 +12,7 @@ API.interceptors.request.use((req) => {
 
 export const accessChat = (userId) => API.post(`/chats/`, { userId });
 
-export const fetchAllChat = () => API.get(`/chats/`);
+export const fetchAllChat = (userId) => API.get(`/chats/${userId}`);
 
 export const createGroup = (formData) => API.post(`/chats/group` , {name : formData.GroupName , users : formData.SelectedUser});
 

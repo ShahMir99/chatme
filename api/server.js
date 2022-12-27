@@ -35,7 +35,7 @@ res.sendFile(path.resolve(__dirname, "../client/build/index.html"))
 const io = new Server(server, {
   pingTimeout: 60000,
   cors: {
-    origin: "http://localhost:3000",
+    origin: "*",
   },
 });
 
@@ -47,6 +47,7 @@ io.on("connection", (socket) => {
 
   socket.on("Join chat", (room) => {
     socket.join(room);
+    console.log("User Joined Room: " + room);
   });
 
   socket.on("new Message", (newMessageReceived) => {

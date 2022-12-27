@@ -27,10 +27,10 @@ import {
 
 import * as chatApi from "../Api/chatApi"
 
-export const fetchAllChat = () => async (dispatch , state) => {
+export const fetchAllChat = (userId) => async (dispatch , state) => {
     dispatch({type : FETCHCHAT_REQUEST_START})
     try{
-        const {data} = await chatApi.fetchAllChat()
+        const {data} = await chatApi.fetchAllChat(userId)
         dispatch({type : FETCHCHAT_REQUEST_SCCUESS , payload : data})
     }catch(err){
         dispatch({type : FETCHCHAT_REQUEST_FAILED , payload : err})
