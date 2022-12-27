@@ -31,11 +31,12 @@ app.get("*", (req, res) =>
 res.sendFile(path.resolve(__dirname, "../client/build/index.html"))
 );
 
+wws.cors();
 
 const io = new Server(server, {
   pingTimeout: 60000,
   cors: {
-    origins: ":*:",
+    origins: "https://powerful-tam-foal.cyclic.app",
   },
 });
 
