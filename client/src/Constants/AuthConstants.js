@@ -1,0 +1,15 @@
+// Sign up Constants
+
+export const SIGNUP_REQUEST_START = "SIGNUP_REQUEST_START";
+export const SIGNUP_REQUEST_SUCCESSFULL = "SIGNUP_REQUEST_SUCCESSFULL";
+export const SIGNUP_REQUEST_FAILED = "SIGNUP_REQUEST_FAILED";
+
+// Login Constants Constants
+
+export const LOGIN_REQUEST_START = "LOGIN_REQUEST_START";
+export const LOGIN_REQUEST_SUCCESSFULL = "LOGIN_REQUEST_SUCCESSFULL";
+export const LOGIN_REQUEST_FAILED = "LOGIN_REQUEST_FAILED";
+
+// LogOut Constants Constants
+export const LOG_OUT = "LOG_OUT";
+export const CLEAR_ERROR = "CLEAR_ERROR";
