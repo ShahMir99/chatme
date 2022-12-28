@@ -35,7 +35,7 @@ res.sendFile(path.resolve(__dirname, "../client/build/index.html"))
 const io = new Server(server, {
   pingTimeout: 60000,
   cors: {
-    origin: "https://powerful-tam-foal.cyclic.app",
+    origin: ":*:",
   },
 });
 
