@@ -33,12 +33,10 @@ res.sendFile(path.resolve(__dirname, "../client/build/index.html"))
 
 
 const io = new Server(server, {
-  pingTimeout: 60000,
-  cors: {
-    origin: ":*:",
-  },
+  pingTimeout: 60000
 });
 
+io.cors();
 
 io.on("connection", (socket) => {
   socket.on("setup", (userData) => {
