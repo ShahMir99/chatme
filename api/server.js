@@ -34,6 +34,7 @@ const io = new Server(server, {
   cors: {
     origin: "*",
   },
+  rejectUnauthorized: false
 });
 
 io.on("connection", (socket) => {
