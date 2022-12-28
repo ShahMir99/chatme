@@ -34,12 +34,7 @@ res.sendFile(path.resolve(__dirname, "../client/build/index.html"))
 );
 
 
-const io = new Server(server, {
-  pingTimeout: 60000,
-  cors: {
-    origin: "*",
-  },
-});
+const io = new Server(server)
 
 
 io.on("connection", (socket) => {
