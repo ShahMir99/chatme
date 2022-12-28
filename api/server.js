@@ -15,7 +15,9 @@ const __dirname = path.dirname(__filename);
 
 app.use(express.json({ limit: "50mb", extented: true }));
 app.use(express.urlencoded({limit : "50mb" , extended: true}))
-app.use(cors());
+app.use(cors({
+  origin: "*",
+}));
 
 app.use("/auth", userRoutes);
 app.use("/chats", chatRoutes);
@@ -33,7 +35,10 @@ res.sendFile(path.resolve(__dirname, "../client/build/index.html"))
 
 
 const io = new Server(server, {
-  pingTimeout: 60000
+  pingTimeout: 60000,
+  cors: {
+    origin: "*",
+  },
 });
 
 
