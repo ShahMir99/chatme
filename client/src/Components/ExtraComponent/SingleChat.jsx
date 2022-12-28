@@ -20,7 +20,7 @@ import { getChatMessage, sendMessageApi } from "../../Api/MesaageApi";
 import { useEffect } from "react";
 import {IoMdSend} from "react-icons/io"
 import ScrollAbleChat from "./ScrollAbleChat";
-import { io } from "socket.io-client"
+import io from "socket.io-client"
 import { fetchAllChat } from "../../Action/chatAction";
 
 const ENDPOINT = "https://powerful-tam-foal.cyclic.app";
@@ -30,10 +30,10 @@ var socket , socketChatCompare;
 
 const SingleChat = ({ SelectedChat }) => {
 
-  //   useEffect(() => {
-  //   socket = io()
-  //   socket.emit("setup" , authData)
-  // },[]);
+    useEffect(() => {
+    socket = io()
+    socket.emit("setup" , authData)
+  },[]);
 
 
 
@@ -44,6 +44,7 @@ const SingleChat = ({ SelectedChat }) => {
   const [Loading, setLoading] = useState(false);
   const [newMessage, setNewMessage] = useState("");
 
+console.log()
 
   const FetchingSelectedChat = async () => {
     if (SelectedChat) {
@@ -52,7 +53,7 @@ const SingleChat = ({ SelectedChat }) => {
         const { data } = await getChatMessage(SelectedChat._id);
         setmessage(data)
         setLoading(false);
-        // socket.emit("Join chat" , SelectedChat._id)
+        socket.emit("Join chat" , SelectedChat._id)
       } catch (err) {
         console.log(err);
         setLoading(false);
@@ -70,7 +71,7 @@ const SingleChat = ({ SelectedChat }) => {
         const { data } = await sendMessageApi(formdata);
         setNewMessage("");
         setmessage([...message, data]);
-        // socket.emit("new Message" , data)
+        socket.emit("new Message" , data)
       } catch (err) {
         console.log(err);
       }
@@ -81,14 +82,14 @@ const SingleChat = ({ SelectedChat }) => {
 
 
   useEffect(() => {
-    // socket.on("message Received" , (newMessageReceived) => {
-    //   if(!socketChatCompare || socketChatCompare._id !== newMessageReceived.chatId._id) {
-    //     // Give Notification
-    //     dispatch(fetchAllChat());
-    //   }else{
-    //     setmessage([...message , newMessageReceived])
-    //   }
-    // })
+    socket.on("message Received" , (newMessageReceived) => {
+      if(!socketChatCompare || socketChatCompare._id !== newMessageReceived.chatId._id) {
+        // Give Notification
+        dispatch(fetchAllChat());
+      }else{
+        setmessage([...message , newMessageReceived])
+      }
+    })
   });
 
   useEffect(() => {

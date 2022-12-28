@@ -1,5 +1,5 @@
 import axios from "axios";
-const API = axios.create({baseURL : "https://powerful-tam-foal.cyclic.app/"})
+const API = axios.create({baseURL : ""})
 
 
 
