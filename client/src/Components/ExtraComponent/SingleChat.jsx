@@ -44,7 +44,6 @@ const SingleChat = ({ SelectedChat }) => {
   const [Loading, setLoading] = useState(false);
   const [newMessage, setNewMessage] = useState("");
 
-console.log()
 
   const FetchingSelectedChat = async () => {
     if (SelectedChat) {
