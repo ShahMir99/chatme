@@ -20,7 +20,7 @@ import { getChatMessage, sendMessageApi } from "../../Api/MesaageApi";
 import { useEffect } from "react";
 import {IoMdSend} from "react-icons/io"
 import ScrollAbleChat from "./ScrollAbleChat";
-import io from "socket.io-client"
+import { io } from "socket.io-client"
 import { fetchAllChat } from "../../Action/chatAction";
 
 const ENDPOINT = "https://powerful-tam-foal.cyclic.app";
@@ -31,7 +31,7 @@ var socket , socketChatCompare;
 const SingleChat = ({ SelectedChat }) => {
 
     useEffect(() => {
-    socket = io(ENDPOINT)
+    socket = io()
     socket.emit("setup" , authData)
   },[]);
 

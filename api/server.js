@@ -7,7 +7,10 @@ import { Server } from "socket.io";
 import userRoutes from "./Routes/userRoutes.js";
 import chatRoutes from "./Routes/chatRoutes.js";
 import messageRpute from "./Routes/messageRpute.js";
-
+import path from "path"
+import {fileURLToPath} from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 
 app.use(express.json({ limit: "50mb", extented: true }));
@@ -22,11 +25,17 @@ const server = app.listen(port, () => {
   console.log(`App is Running on  ${port} Port Sucessfully`);
 });
 
+app.use(express.static(path.join(__dirname , "../client/build")))
+
+app.get("*", (req, res) =>
+res.sendFile(path.resolve(__dirname, "../client/build/index.html"))
+);
+
 
 const io = new Server(server, {
   pingTimeout: 60000,
   cors: {
-    origin: "https://chatmee.netlify.app/",
+    origin: "https://powerful-tam-foal.cyclic.app",
   },
 });
 
