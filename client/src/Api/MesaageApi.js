@@ -1,5 +1,5 @@
 import axios from "axios";
-const API = axios.create({ baseURL: "" });
+const API = axios.create({baseURL : "https://powerful-tam-foal.cyclic.app/"})
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem("userInfo")) {

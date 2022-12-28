@@ -26,7 +26,7 @@ const server = app.listen(port, () => {
 const io = new Server(server, {
   pingTimeout: 60000,
   cors: {
-    origin: "https://powerful-tam-foal.cyclic.app",
+    origin: "https://chatmee.netlify.app/",
   },
 });
 

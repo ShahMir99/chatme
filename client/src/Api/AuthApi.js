@@ -1,8 +1,8 @@
 import axios from "axios";
-// const API = axios.create({baseURL : "http://localhost:5000/"})
+const API = axios.create({baseURL : "https://powerful-tam-foal.cyclic.app/"})
 
 
 
-export const signup = (formdata) => axios.post("/auth/register" , formdata)
+export const signup = (formdata) => API.post("/auth/register" , formdata)
 
-export const signin = (formdata) => axios.post("/auth/login" , formdata )
+export const signin = (formdata) => API.post("/auth/login" , formdata )
